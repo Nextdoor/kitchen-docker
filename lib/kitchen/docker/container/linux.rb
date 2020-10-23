@@ -191,6 +191,10 @@ module Kitchen
           CODE
 
           custom = ''
+          Array(@config[:add_files]).each do |file|
+            custom << "ADD #{file}\n"
+          end
+
           Array(@config[:provision_command]).each do |cmd|
             custom << "RUN #{cmd}\n"
           end
